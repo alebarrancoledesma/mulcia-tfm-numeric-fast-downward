@@ -128,20 +128,15 @@ Here is a list of the current additions:
 
 ## Setup (uv)
 
-Requires [uv](https://docs.astral.sh/uv/). From the repository root:
+Optional Python environment for repository tooling. Requires [uv](https://docs.astral.sh/uv/). From the repository root:
 
 ```bash
 uv sync
 ```
 
-The driver and translator scripts use only the Python standard library. CPLEX, OSI, Bliss, and optional Gurobi (see [Build](#build)) are external native dependencies and are not managed by uv.
+**Important:** Building and running the solver still requires **Python 2.7.x** (see [Run](#run)). The driver and translator are not supported on Python 3.x. Use a system `python2.7` for `build.py` and `fast-downward.py`; do not run the solver through `uv run`.
 
-Build and run through uv:
-
-```bash
-uv run python build.py release64
-uv run python fast-downward.py --build=release64 domain.pddl problem.pddl --search "astar(blind)"
-```
+CPLEX, OSI, Bliss, and optional Gurobi (see [Build](#build)) are external native dependencies and are not managed by uv.
 
 ## Build
 
@@ -241,13 +236,12 @@ cd numeric-fast-downward
 ## Run
 
 Follow the instructions of the original [Fast Downward](http://www.fast-downward.org/ObtainingAndRunningFastDownward).
-
-The driver and translator support Python >= 2.7 and Python >= 3.2 (see `src/translate/translate.py`). The note below about Python 2.7 only applied to older upstream Fast Downward releases; this fork runs with Python 3. With [uv](#setup-uv), use Python 3.12.
+Please use Python 2.7.x. Currently, Python 3.x is not supported.
 
 Quick summary:
 
 ```bash
-uv run python fast-downward.py --build=release64 domain.pddl problem.pddl --search "astar(blind)"
+python fast-downward.py --build=release64 domain.pddl problem.pddl --search "astar(blind)"
 ```
 
 ### Numeric LM-cut
