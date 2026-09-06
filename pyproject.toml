@@ -1,0 +1,10 @@
+[project]
+name = "mulcia-tfm-numeric-fast-downward"
+version = "0.1.0"
+description = "Numeric Fast Downward: extension of Fast Downward for numeric planning"
+readme = "README.md"
+requires-python = ">=3.2"
+dependencies = []
+
+[dependency-groups]
+dev = []
