@@ -1,2 +1,13 @@
-driver/*.pyc
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build artifacts
 builds/
+
+# Bliss compilation outputs (make in src/search/bliss-0.73)
+src/search/bliss-0.73/*.o
+src/search/bliss-0.73/*.og
+src/search/bliss-0.73/libbliss.a
+src/search/bliss-0.73/bliss
