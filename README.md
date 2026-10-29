@@ -1,3 +1,15 @@
+# Adaptación para el TFM
+
+Este fork se utilizó para estudiar y contrastar las heurísticas de referencia disponibles para planificación numérica, especialmente Numeric LM-Cut. El pipeline experimental principal utiliza PlanForge; este repositorio sirve como implementación de referencia y entorno de contraste.
+
+Se añadieron la configuración de entorno con `uv` y reglas para excluir artefactos locales de compilación y ejecución, sin modificar el contenido original que documenta Numeric Fast Downward.
+
+```bash
+uv sync
+```
+
+---
+
 # Numeric Fast Downward 
 
 This is a work-in-progress repository for an extension of Numerical Fast Downward and developed by Chiara Piacentini and Ryo Kuroiwa. 
@@ -126,18 +138,6 @@ Here is a list of the current additions:
 }
 ```
 
-## Setup (uv)
-
-Optional Python environment for repository tooling. Requires [uv](https://docs.astral.sh/uv/). From the repository root:
-
-```bash
-uv sync
-```
-
-**Important:** Building and running the solver still requires **Python 2.7.x** (see [Run](#run)). The driver and translator are not supported on Python 3.x. Use a system `python2.7` for `build.py` and `fast-downward.py`; do not run the solver through `uv run`.
-
-CPLEX, OSI, Bliss, and optional Gurobi (see [Build](#build)) are external native dependencies and are not managed by uv.
-
 ## Build
 
 ### Install LPSolver
@@ -241,7 +241,7 @@ Please use Python 2.7.x. Currently, Python 3.x is not supported.
 Quick summary:
 
 ```bash
-python fast-downward.py --build=release64 domain.pddl problem.pddl --search "astar(blind)"
+python fast-downward.py --build=release64 domain.pddl problem.pddl --search "astar(blind)
 ```
 
 ### Numeric LM-cut
